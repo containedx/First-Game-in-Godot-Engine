@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/enemy.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 37 )
+extents = Vector2( 54, 37 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 45, 9 )
@@ -30,8 +30,7 @@ physics_process_parent = true
 
 [node name="HitDetector" type="Area2D" parent="."]
 modulate = Color( 0.172549, 0.203922, 0.945098, 1 )
-monitorable = false
-collision_layer = 0
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetector"]
 position = Vector2( 0, -83 )

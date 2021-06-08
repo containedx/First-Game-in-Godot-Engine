@@ -1,6 +1,10 @@
 extends Actor
 
 
+func _on_EnemyDetector_body_entered(body):
+	queue_free()
+	
+
 func _physics_process(delta):
 	var is_jumping = Input.is_action_just_released("jump") and _velocity.y < 0.0
 	var direction = calculate_direction()
@@ -25,5 +29,8 @@ func calculate_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vec
 		new.y = 0.0
 	return new
 	
+
+
+
 
 
