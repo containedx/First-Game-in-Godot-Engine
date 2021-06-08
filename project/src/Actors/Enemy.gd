@@ -2,6 +2,7 @@ extends Actor
 
 #analogic to unity start()
 func _ready():
+	set_physics_process(false) #enemy dont enter the screen from outside -> it starts moving only when visible on screen
 	_velocity.x = -speed.x #move towards left at start
 
 func _physics_process(delta):
