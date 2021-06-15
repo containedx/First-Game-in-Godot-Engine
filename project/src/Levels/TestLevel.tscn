@@ -65,7 +65,7 @@ tile_data = PoolIntArray( -327624, 0, 0, -327623, 0, 0, -327622, 0, 0, -327621, 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 1439, 524 )
+position = Vector2( 1866, 553 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 3 )]
 position = Vector2( 3222, 296 )
@@ -76,7 +76,7 @@ position = Vector2( 4118, 458 )
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource( 5 )]
-position = Vector2( 2037, 381 )
+position = Vector2( 2037, 435 )
 
 [node name="Coin2" parent="Coins" instance=ExtResource( 5 )]
 position = Vector2( 2193, 332 )
@@ -94,11 +94,10 @@ position = Vector2( 2669, 114 )
 position = Vector2( 2864, 36 )
 
 [node name="Portal" parent="." instance=ExtResource( 6 )]
-position = Vector2( 4174.17, 288.066 )
+position = Vector2( 4177.17, 476.19 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -363, 515 )
-scale = Vector2( 1, 1 )
+position = Vector2( -400.688, 515.383 )
 
 [node name="Camera2D" parent="Player" index="2"]
 limit_right = 5650
