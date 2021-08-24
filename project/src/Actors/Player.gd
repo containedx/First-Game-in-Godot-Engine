@@ -2,7 +2,7 @@ extends Actor
 
 
 func _on_EnemyDetector_body_entered(body):
-	queue_free()
+	die()
 	
 
 func _physics_process(delta):
@@ -29,7 +29,9 @@ func calculate_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vec
 		new.y = 0.0
 	return new
 	
-
+func die()-> void:
+	PlayerData.deaths += 1
+	queue_free()
 
 
 
