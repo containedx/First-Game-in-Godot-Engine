@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/574524__bigvegie__sweetvibe.mp3-9373922d20a1ec3abdf7c84ffb43204f.mp3str"
+
+[deps]
+
+source_file="res://assets/music/574524__bigvegie__sweetvibe.mp3"
+dest_files=[ "res://.import/574524__bigvegie__sweetvibe.mp3-9373922d20a1ec3abdf7c84ffb43204f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

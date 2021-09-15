@@ -17,7 +17,7 @@ func _physics_process(delta):
 		_velocity.x *= -1.0 #turn back when hit the wall
 	_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y
 
-func die()-> void:
+func die():
 	PlayerData.score += score
 	queue_free()
 

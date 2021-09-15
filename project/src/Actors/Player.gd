@@ -30,7 +30,7 @@ func calculate_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vec
 	return new
 	
 func die()-> void:
-	PlayerData.deaths += 1
+	PlayerData.player_dead()
 	queue_free()
 
 

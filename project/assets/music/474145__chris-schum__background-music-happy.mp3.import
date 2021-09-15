@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/474145__chris-schum__background-music-happy.mp3-d243be7a4b36d2d5750fcf16e541f627.mp3str"
+
+[deps]
+
+source_file="res://assets/music/474145__chris-schum__background-music-happy.mp3"
+dest_files=[ "res://.import/474145__chris-schum__background-music-happy.mp3-d243be7a4b36d2d5750fcf16e541f627.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

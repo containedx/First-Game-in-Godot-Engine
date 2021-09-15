@@ -14,7 +14,7 @@ func _get_configuration_warning():
 	return "There is no next level" if not next_level else ""
 	
 # teleporting to next level
-func teleport() -> void:
+func teleport():
 	anim_player.play("black_screen")
 	yield(anim_player, "animation_finished") #waiting till the end of animation
 	get_tree().change_scene_to(next_level) 

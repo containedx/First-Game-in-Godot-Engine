@@ -8,6 +8,6 @@ export var score: = 10
 func _on_Coin_body_entered(body):
 	pick_coin()
 
-func pick_coin() -> void:
+func pick_coin():
 	PlayerData.score += score
 	anim_player.play("fade_out")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/theme.tres" type="Theme" id=1]
 [ext_resource path="res://src/UI/Title.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/UI/NextSceneButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/RetryButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/UserInterface.gd" type="Script" id=6]
+[ext_resource path="res://assets/music/level.mp3" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "game_over"
@@ -59,6 +60,11 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/game_over = SubResource( 1 )
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -30.0
+autoplay = true
 
 [node name="Score Label" type="Label" parent="."]
 anchor_left = 1.0
