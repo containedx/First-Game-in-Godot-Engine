@@ -1,0 +1,176 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/UI/Title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/QuitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/NextSceneButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UI/RetryButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UI/UserInterface.gd" type="Script" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "game_over"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameOverOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 0.901961, 0.937255, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.901961, 0.937255, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.901961, 0.937255, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.901961, 0.937255, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameOverOverlay/Title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.99995, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GameOverOverlay/GameOverMenu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="UserInterface" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/game_over = SubResource( 1 )
+
+[node name="Score Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -181.0
+margin_top = 18.0
+margin_bottom = 87.0
+text = "SCORE:  0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.254902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="PauseOverlay" instance=ExtResource( 2 )]
+custom_colors/font_color = Color( 0.643137, 0.054902, 0.109804, 1 )
+text = "CLICK      TO RESUME"
+
+[node name="Title2" parent="PauseOverlay/Title" instance=ExtResource( 2 )]
+margin_left = -268.0
+margin_top = -28.5
+margin_right = 130.0
+margin_bottom = 28.5
+custom_colors/font_color = Color( 1, 0.827451, 0.890196, 1 )
+text = "P"
+
+[node name="PauseMenu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.0
+margin_top = -45.0
+margin_right = 228.0
+margin_bottom = 115.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextSceneButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
+margin_right = 456.0
+margin_bottom = 78.0
+text = "MAIN MENU"
+next_scene = "res://src/Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 3 )]
+margin_top = 82.0
+margin_right = 456.0
+margin_bottom = 160.0
+
+[node name="GameOverOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 0.918301, 0.947712, 0.833333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="GameOverOverlay" instance=ExtResource( 2 )]
+margin_left = -265.0
+margin_top = -166.0
+margin_right = 65.0
+margin_bottom = -109.0
+custom_colors/font_color = Color( 0.643137, 0.054902, 0.109804, 1 )
+text = "GAME "
+
+[node name="Title2" parent="GameOverOverlay/Title" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = -28.5
+margin_right = 349.0
+margin_bottom = 28.5
+custom_colors/font_color = Color( 0.941176, 0.584314, 0.65098, 1 )
+text = "OVER"
+
+[node name="GameOverMenu" type="VBoxContainer" parent="GameOverOverlay"]
+modulate = Color( 1, 1, 1, 0.833333 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.0
+margin_top = -61.0
+margin_right = 228.0
+margin_bottom = 178.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" parent="GameOverOverlay/GameOverMenu" instance=ExtResource( 5 )]
+margin_right = 456.0
+margin_bottom = 77.0
+
+[node name="NextSceneButton2" parent="GameOverOverlay/GameOverMenu" instance=ExtResource( 4 )]
+margin_top = 81.0
+margin_right = 456.0
+margin_bottom = 158.0
+text = "MAIN MENU"
+next_scene = "res://src/Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="GameOverOverlay/GameOverMenu" instance=ExtResource( 3 )]
+margin_top = 162.0
+margin_right = 456.0
+margin_bottom = 239.0
