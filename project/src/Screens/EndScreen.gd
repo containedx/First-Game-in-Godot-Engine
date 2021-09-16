@@ -1,6 +1,6 @@
 extends Control
 
-onready var label: Label = get_node("Score")
+onready var label: Label = get_node("Label Score/Score")
 onready var audio_player: AudioStreamPlayer = $Audio
 onready var video_player: VideoPlayer = $VideoPlayer
 
@@ -17,4 +17,4 @@ func turn_off_video():
 	video_player.visible = false
 	video_player.queue_free()
 	audio_player.play()
-	#label.text = "%s" % PlayerData.score  sth not working
+	label.text = "%s" % PlayerData.score

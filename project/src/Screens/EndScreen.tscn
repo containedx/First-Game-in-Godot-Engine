@@ -7,7 +7,7 @@
 [ext_resource path="res://src/UI/QuitButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Screens/EndScreen.gd" type="Script" id=6]
 [ext_resource path="res://assets/music/474145__chris-schum__background-music-happy.mp3" type="AudioStream" id=7]
-[ext_resource path="res://art/intro/ending (1).webm" type="VideoStream" id=8]
+[ext_resource path="res://art/intro/ending.webm" type="VideoStream" id=8]
 
 [node name="EndScreen" type="Control"]
 anchor_right = 1.0
@@ -47,7 +47,6 @@ __meta__ = {
 }
 
 [node name="Label Score" type="Label" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -116,5 +115,5 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 12.0
 autostart = true
