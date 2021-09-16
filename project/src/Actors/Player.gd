@@ -1,5 +1,6 @@
 extends Actor
 
+onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 func _on_EnemyDetector_body_entered(body):
 	die()
@@ -10,6 +11,16 @@ func _physics_process(delta):
 	var direction = calculate_direction()
 	_velocity = calculate_velocity(_velocity, direction, speed, is_jumping)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
+	handle_animation()
+	
+	
+	
+func handle_animation():
+	
+	if(Input.get_action_strength("move_right")): 
+		anim_player.play("go_right")
+	if(Input.get_action_strength("move_left")):
+		anim_player.play("go_left")
 	
 func calculate_direction() -> Vector2: 
 		return Vector2(

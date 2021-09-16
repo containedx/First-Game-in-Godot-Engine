@@ -1,15 +1,173 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=2]
 
-[sub_resource type="StreamTexture" id=1]
+[sub_resource type="Animation" id=1]
+resource_name = "go_left"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -15, -40 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemyDetector/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -15, -38 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "go_right"
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3, -40 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemyDetector/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -4.6, -38 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "walk_left"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -15, -40 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemyDetector/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -15, -38 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "walk_right"
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3, -40 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemyDetector/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -4.6, -38 ) ]
+}
+
+[sub_resource type="StreamTexture" id=3]
 flags = 4
 load_path = "res://.import/pink.png-0e118c0a13c625367f41793402bc0186.stex"
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 35, 40 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 38, 32 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -18,14 +176,21 @@ script = ExtResource( 2 )
 speed = Vector2( 800, 1400 )
 gravity = 4000.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/go_left = SubResource( 1 )
+anims/go_right = SubResource( 2 )
+anims/walk_left = SubResource( 6 )
+anims/walk_right = SubResource( 7 )
+
 [node name="player" type="Sprite" parent="."]
-position = Vector2( -7, -42 )
+position = Vector2( -9.67267, -42.4454 )
 scale = Vector2( 1.10784, 1.10784 )
-texture = SubResource( 1 )
+texture = SubResource( 3 )
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -3, -40 )
-shape = SubResource( 2 )
+position = Vector2( -15, -40 )
+shape = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -192 )
@@ -42,7 +207,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
-position = Vector2( -2, -38 )
-shape = SubResource( 3 )
+position = Vector2( -15, -38 )
+shape = SubResource( 5 )
 
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
