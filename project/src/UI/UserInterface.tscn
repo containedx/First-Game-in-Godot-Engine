@@ -63,7 +63,7 @@ anims/game_over = SubResource( 1 )
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -30.0
+volume_db = 0.292
 autoplay = true
 
 [node name="Score Label" type="Label" parent="."]
