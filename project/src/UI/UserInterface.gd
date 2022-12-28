@@ -14,6 +14,7 @@ func _ready(): #called before everything
 	PlayerData.connect("score_updated", self, "update_interface")
 	PlayerData.connect("player_died", self, "on_Player_player_died")
 	play_random_pitch()
+	update_interface()
 	
 func play_random_pitch():
 	var random = RandomNumberGenerator.new()
