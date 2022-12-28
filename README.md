@@ -11,3 +11,6 @@ When the body is deficient in iron, red cells do not develop as they should. You
 
 
 [PLAY HERE](https://containedx.itch.io/pinkred)
+
+
+![](https://gyazo.com/d09d76ab15ba1fbc26b43cd731af2d84)
